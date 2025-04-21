@@ -19,6 +19,7 @@ Navigate through space, collect stars for fuel, avoid or destroy asteroids, and 
 
 ## Requirements
 - LÖVE 2d
+- Once installed on your system, type love . to run the game and enjoy!
 
 
 ## License
