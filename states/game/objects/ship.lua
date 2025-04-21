@@ -11,7 +11,7 @@ ship.maxFuel = 100
 ship.shield = false
 ship.boost = false
 ship.boostTimer = 0
-ship.boostSpeed = 600  -- Double speed when boosting
+ship.boostSpeed = 600  -- double speed when boosting
 ship.img = nil
 ship.scale = 0.2
 
@@ -31,7 +31,7 @@ function ship.update(dt)
         end
     end
     
-    -- Move ship
+    -- move ship
     local currentSpeed = ship.boost and ship.boostSpeed or ship.speed
     if love.keyboard.isDown("up") then
         ship.y = math.max(0, ship.y - currentSpeed * dt)
