@@ -1,5 +1,6 @@
 local game = {}
 
+local backgroundMusic = love.audio.newSource("sounds/synthwave-retro-80s-321106.mp3", "static")
 
 local ship = require("states.game.objects.ship")
 local stars = require("states.game.objects.stars")
@@ -34,6 +35,7 @@ function game.load()
     rocks.load()
     powerups.load()
     lasers.load()
+    backgroundMusic:play()
     
     -- setup particles
     local success, particleImage = pcall(getParticleImage)

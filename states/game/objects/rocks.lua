@@ -1,6 +1,7 @@
 --table
 
 local rocks = {}
+local explosion = love.audio.newSource("sounds/Retro_Explosion_Short_15.wav", "static")
 
 local rockList = {}
 local asteroidImage = nil

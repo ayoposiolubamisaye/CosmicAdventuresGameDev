@@ -1,4 +1,5 @@
 local collision = {}
+local explosion = love.audio.newSource("sounds/Retro_Explosion_Short_15.wav", "static")
 
 function collision.checkAll(ship, stars, rocks, lasers, powerups, score)
     -- check star collisions
@@ -34,12 +35,14 @@ function collision.checkAll(ship, stars, rocks, lasers, powerups, score)
                     if rock.hits <= 0 then -- if rock has no hits, spawn power up
                         powerups.add(rock.x, rock.y, true)
                         table.remove(rocks.getList(), j)
+                        explosion:play()
                         score = score + 50  -- 50 points for destroying
                     else
                         score = score + 10  -- 10 points for hitting 
                     end
                 else
                     table.remove(rocks.getList(), j)
+                    explosion:play()
                     score = score + 20  -- 20 points for destroying reg rock
                 end
                 table.remove(lasers.getList(), i)

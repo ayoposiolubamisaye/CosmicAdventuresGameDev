@@ -13,7 +13,7 @@ ship.boost = false
 ship.boostTimer = 0
 ship.boostSpeed = 600  -- double speed when boosting
 ship.img = nil
-ship.scale = 0.2
+ship.scale = 0.1
 
 function ship.load()
     local ok, img = pcall(love.graphics.newImage, "assets/images/spaceship.png")
