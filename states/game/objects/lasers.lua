@@ -1,4 +1,5 @@
 local lasers = {}
+local laserSound = love.audio.newSource("sounds/Retro_Gun_Laser_SingleShot_01.wav", "static")
 
 -- table 
 local laserList = {}
@@ -13,6 +14,8 @@ function lasers.shoot(ship)
         w = 30,
         h = 10
     })
+    laserSound:stop()
+    laserSound:play()
 end
 
 function lasers.update(dt)

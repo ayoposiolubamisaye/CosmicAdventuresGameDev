@@ -135,14 +135,20 @@ function game.draw()
     drawHUD()
 end
 
+function drawFuelBar(ship)
+    local fuelColor = ship.fuel > 50 and {0, 1, 0} or ship.fuel > 20 and {1, 1, 0} or {1, 0, 0}
+    love.graphics.setColor(fuelColor)
+    love.graphics.rectangle("fill", 91, 24, ship.fuel * 144 / 100, 22)
+    love.graphics.setColor(1,1,1)
+    love.graphics.rectangle("line", 90, 24, 146, 22, 4)
+    love.graphics.setFont(love.graphics.newFont(16))
+    love.graphics.printf(math.floor(ship.fuel) .. "/100 FUEL", 90, 24, 144, "center")
+end
+
 function drawHUD()
     -- fuel bar
-    love.graphics.setColor(1, 1, 1)
-    love.graphics.rectangle("line", 20, 20, 200, 20)
-    local fuelColor = ship.fuel > 50 and {0, 1, 0} or ship.fuel > 20 and {1, 1, 0} or {1, 0, 0}
-    love.graphics.setColor(unpack(fuelColor))
-    love.graphics.rectangle("fill", 20, 20, (ship.fuel / ship.maxFuel) * 200, 20)
-    
+    drawFuelBar(ship)
+
     love.graphics.setFont(scoreFont)
     love.graphics.setColor(1, 1, 1)
     local scoreText = "SCORE: " .. game.score
