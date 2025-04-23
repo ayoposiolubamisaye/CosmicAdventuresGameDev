@@ -42,7 +42,7 @@ function powerups.draw()
             love.graphics.circle("fill", p.x, p.y, p.size + 5)
             
             love.graphics.setColor(1, 1, 1) --shield icon
-            love.graphics.draw(shieldImage, p.x, p.y, 0, 0.1, 0.1, 
+            love.graphics.draw(shieldImage, p.x, p.y, 0, 0.06, 0.06, 
                 shieldImage:getWidth()/2, shieldImage:getHeight()/2)
         else
             love.graphics.setColor(1, 0.5, 0, 0.5) --speed up effect

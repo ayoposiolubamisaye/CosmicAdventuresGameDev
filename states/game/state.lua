@@ -77,7 +77,7 @@ function game.update(dt)
     
     -- update all game objects
     stars.update(dt, speed)
-    rocks.update(dt, speed)
+    rocks.update(dt, speed, game.score)
     lasers.update(dt)
     powerups.update(dt, speed)
     

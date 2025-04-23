@@ -40,12 +40,13 @@ function rocks.add()
     })
 end
 
-function rocks.update(dt, speed)
+function rocks.update(dt, baseSpeed, score)
     for i = #rockList, 1, -1 do
         local rock = rockList[i]
         
         -- move rock left
-        rock.x = rock.x - speed * dt
+        local scaledSpeed = baseSpeed + (score or 0) * 0.15
+        rock.x = rock.x - scaledSpeed * dt
         
         -- rotate rock
         rock.rotation = rock.rotation + rock.rotationSpeed * dt
