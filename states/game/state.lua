@@ -155,7 +155,7 @@ function drawHUD()
     love.graphics.setColor(1, 1, 1)
     local scoreText = "SCORE: " .. game.score
     local textWidth = scoreFont:getWidth(scoreText)
-    love.graphics.print(scoreText, SCREEN_WIDTH/2 - textWidth/2, SCREEN_HEIGHT - 50)
+    love.graphics.print(scoreText, 330, 24)
     
     -- powerup status
     if ship.shield then

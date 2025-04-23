@@ -7,6 +7,12 @@ local states = {
 
 local currentState = "menu"
 
+local bg = {}
+bg.image = love.graphics.newImage("assets/images/blue-preview.png")
+bg.x = 0
+bg.scrollSpeed = 30
+local bgScale = 1.3
+
 -- change game state
 function changeState(newState)
     if states[newState] and states[newState].enter then
@@ -34,6 +40,8 @@ function love.load()
 end
 
 function love.update(dt)
+    bg.x = (bg.x - bg.scrollSpeed * dt) % (bg.image:getWidth() * bgScale)
+
     if states[currentState] and states[currentState].update then
         local nextState = states[currentState].update(dt)
         if nextState then
@@ -43,6 +51,9 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.draw(bg.image, bg.x, 0, 0, bgScale, bgScale)
+    love.graphics.draw(bg.image, bg.x - bg.image:getWidth() * bgScale, 0, 0, bgScale, bgScale)
+
     if states[currentState] and states[currentState].draw then
         states[currentState].draw()
     end
